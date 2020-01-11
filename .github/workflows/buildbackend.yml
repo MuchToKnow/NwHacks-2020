@@ -1,0 +1,12 @@
+name: Docker Image CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the backend Docker image
+      run: docker build backend --tag my-image-name:$(date +%s)
